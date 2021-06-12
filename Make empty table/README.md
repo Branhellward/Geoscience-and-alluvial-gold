@@ -1,8 +1,3 @@
----
-title: README.md
-tags: []
----
-
 # Empty table
 Here we make an empty table for a coordinates
 
