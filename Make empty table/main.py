@@ -2,6 +2,12 @@
 
 import xlsxwriter
 
+number_of_cells = int(input('Input number of rows: '))  # 'Введи колличество угловых точек'
+height = 1
+dig = 3       # Digit
+let = 'A'     # Letter
+z = 1         # Counter
+
 workbook = xlsxwriter.Workbook("Сoordinates.xlsx")   # Name of xlsx file/ Название файла
 worksheet = workbook.add_worksheet('Сoordinates')    # Name of xlsx worksheet/ Название листа
 
@@ -29,5 +35,17 @@ worksheet.write('D2', 'Seconds', write_format)  # 'Секунды'
 worksheet.write('E2', 'Degrees', write_format)  # 'Градусы'
 worksheet.write('F2', 'Minutes', write_format)  # 'Минуты'
 worksheet.write('G2', 'Seconds', write_format)  # 'Секунды'
+
+
+def number_of_rows(let, dig):
+    return let + str(dig)
+
+
+while height <= number_of_cells:
+    table = number_of_rows(let, dig)
+    worksheet.write(table, int(z), write_format)
+    height += 1
+    dig += 1
+    z += 1
 
 workbook.close()
