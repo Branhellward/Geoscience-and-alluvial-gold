@@ -37,12 +37,12 @@ worksheet.write('F2', 'Minutes', write_format)  # 'Минуты'
 worksheet.write('G2', 'Seconds', write_format)  # 'Секунды'
 
 
-def number_of_rows(let, dig):
+def number_of_rows():
     return let + str(dig)
 
 
 while height <= number_of_cells:
-    table = number_of_rows(let, dig)
+    table = number_of_rows()
     worksheet.write(table, int(z), write_format)
     height += 1
     dig += 1
