@@ -1,4 +1,5 @@
 # If you need -> you can replace english to russian use comments
+# При необходимости вы можете заменить английский язык на русский в соответствии с комментариями
 
 import xlsxwriter
 
@@ -44,6 +45,12 @@ def number_of_rows():
 while height <= number_of_cells:
     table = number_of_rows()
     worksheet.write(table, int(z), write_format)
+    worksheet.write('B' + str(dig), None, write_format)
+    worksheet.write('C' + str(dig), None, write_format)
+    worksheet.write('D' + str(dig), None, write_format)
+    worksheet.write('E' + str(dig), None, write_format)
+    worksheet.write('F' + str(dig), None, write_format)
+    worksheet.write('G' + str(dig), None, write_format)
     height += 1
     dig += 1
     z += 1
