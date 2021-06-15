@@ -1,4 +1,4 @@
-# If you need -> you can replace english to russian use comments
+# If you need - you can replace English to Russian use comments in source
 # При необходимости вы можете заменить английский язык на русский в соответствии с комментариями
 
 import xlsxwriter
@@ -20,8 +20,8 @@ merge_format = workbook.add_format({
     'fg_color': 'white'})
 
 worksheet.merge_range('A1:A2', '№№', merge_format)
-worksheet.merge_range('B1:D1', 'North latitude', merge_format)   # 'Северная широта'
-worksheet.merge_range('E1:G1', 'East longitude', merge_format)   # 'Восточная долгота'
+worksheet.merge_range('B1:D1', 'North Latitude', merge_format)   # 'Северная Широта'
+worksheet.merge_range('E1:G1', 'East Longitude', merge_format)   # 'Восточная Долгота'
 
 write_format = workbook.add_format({
     'bold': 0,
