@@ -6,15 +6,21 @@ Using a module for creating Excel XLSX files
 
 [XlsxWriter](https://pypi.org/project/XlsxWriter/) - link to pypi.
 
+Add some GUI using PyQt5 and QT Designer
+
+[PyQt5](https://pypi.org/project/PyQt5/) - link to pypi.
+
 ---
 
-After run we have a console question:
+After run we have an interface:
 
->Input number of rows:
+![Your gui](img/Gui_ex.png)
 
 Input 15 (example)
 
-Then you have a Сoordinates.xlsx file with a full table you want:
+Click button "Create empty table" and select the name and path of the file
+
+Then you have a "your_name".xlsx file with a full table you want:
 
 ![Your output table](img/Table_ex.png)
 
