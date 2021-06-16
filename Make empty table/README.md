@@ -24,7 +24,7 @@ Then you have a "your_name".xlsx file with a full table you want:
 
 ![Your output table](img/Table_ex.png)
 
-It can help you to save some time in future
+It can be useful when you need copy this table to Word (doc or docx) file or AutoCAD dwg file
 
 ------
 
