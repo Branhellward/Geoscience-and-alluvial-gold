@@ -24,22 +24,20 @@ At first this script was originally for [Global Mapper](https://www.bluemarblege
 
 1. Take the area for export:
 
-![square_ex.png](\img\square_ex.png)
+![square_ex.png](img/square_ex.png)
 
 2. Export vector/lidar as .txt use this options (example):
 
-![pref_ex.png](\img\pref_ex.png)
+![pref_ex.png](img/pref_ex.png)
 
 3. Take our export file and put it with main.py together, rename .txt file as 'square' than run the script (example).
 
-![vector_ex.png](\img\vector_ex.png)
+![vector_ex.png](img/vector_ex.png)
 
 4. And here we have a result (example).
 
-![result_ex.png](\img\result_ex.png)
-
-​         
-
+![result_ex.png](img/result_ex.png)
+         
 It can be useful when you need copy this table to Word (doc or docx) file or AutoCAD dwg file
 
 ------
