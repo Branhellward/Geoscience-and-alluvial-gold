@@ -106,10 +106,3 @@ if __name__ == '__main__':
     myapp = empty_table()
     myapp.show()
     sys.exit(app.exec_())
-
-
-
-
-
-
-
