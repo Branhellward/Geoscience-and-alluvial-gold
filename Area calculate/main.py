@@ -1,22 +1,26 @@
 import xlsxwriter
+import sys
 import pandas as pd
 import regex
 
+from window import *
+
 global cleaner                                                  # Variable for regular expression
 global dd, ee                                                   # Internal calculations for sum
+global file_name, output_file_2
 
 
-def make_xlsx():
-    open_first = open('square.txt').read()                      # Prepare file for further work
+def make_xlsx_square():
+    open_first = open(file_name).read()                         # Prepare file for further work
     global cleaner                                              # Use some regular expression
     cleaner = r'\1.\2'                                          #
     fine_txt = regex.sub(r'(\d{0})+[.,]+(\d)', cleaner, open_first)
-    f = open("square.txt", 'w')                                 #
+    f = open(file_name, 'w')
     f.write(fine_txt)                                           # Write our file
     f.close()
-    data = pd.read_csv("square.txt", encoding='cp1251', header=None, sep=r"\s+", names=None)
+    data = pd.read_csv(file_name, encoding='cp1251', header=None, sep=r"\s+", names=None)
 
-    workbook = xlsxwriter.Workbook("Area calculate.xlsx")       # Name of our .xlsx file
+    workbook = xlsxwriter.Workbook(output_file_2)               # Name of our .xlsx file
     worksheet = workbook.add_worksheet('Area calculate')
 
     worksheet.set_column('B:C', 16.22)                          # Set the cell width
@@ -70,7 +74,7 @@ def make_xlsx():
 
     a = 0                                                       #
     data_shape = data.shape[0]                                  #
-    z = data.shape[0] - 1                                       #
+    data_shape_2 = data.shape[0] - 1                            #
     bcolmn = 'B'                                                #
     b = 0                                                       # Letter
     ccolmn = 'C'                                                # Variables
@@ -79,13 +83,13 @@ def make_xlsx():
     d = 0                                                       #
     ecolmn = 'E'                                                #
     e = 0                                                       #
-    x = z + 1                                                   #
+    x = data_shape_2 + 1                                        #
     form_a = 1                                                  #
     form_b = 1                                                  #
 
     global dd, ee                                               # Internal calculations for sum
 
-    while a < z:
+    while a < data_shape_2:
         vertical = ('A' + str(a + 2))
         bb = (bcolmn + str(b + 2))
         cc = (ccolmn + str(c + 2))
@@ -120,4 +124,79 @@ def make_xlsx():
     workbook.close()
 
 
-make_xlsx()
+class area_calculate(QtWidgets.QMainWindow):
+    def __init__(self, parent=None):
+        QtWidgets.QWidget.__init__(self, parent)
+        self.ui = Ui_area_calculate()
+        self.ui.setupUi(self)
+
+        self.ui.pushButton_3.clicked.connect(self.instruction_2)
+        self.ui.pushButton_5.clicked.connect(self.file_selection)
+        self.ui.pushButton_4.clicked.connect(self.save_file_area)
+
+    def file_selection(self):
+        global file_name
+        self.label_status_calm()
+        file_name = QFileDialog.getOpenFileName(self, "File selection", "Your file", "text (*.txt)")[0]
+        if not file_name:
+            QtWidgets.QMessageBox.about(self, 'Warning', 'Need to select a .txt file!')
+        else:
+            self.path_label()
+            self.ui.pushButton_4.setDisabled(False)
+        return file_name
+
+    def save_file_area(self):
+        global output_file_2
+        output_file_2 = False
+        output_file_2 = QtWidgets.QFileDialog.getSaveFileName(self, "Save file", "Your file", "*.xlsx")[0]
+        if not output_file_2:
+            QtWidgets.QMessageBox.about(self, 'Warning', 'Need to select the name and path of the file!')
+        else:
+            make_xlsx_square()
+            self.finish_label()
+            self.ui.pushButton_4.setDisabled(True)
+
+    def instruction_2(self):
+        QtWidgets.QMessageBox.about(self, 'Instruction', ''' 
+    Area calculate
+ 
+1. The necessary lines, areas and points - must be
+            Projection:
+            Gauss Krueger (6 degree zones)
+            Zone:
+            Which you need
+            Datum:
+            Which you need, for ex. (S-42 (PULKOVO 1942))
+            Planar Units:
+            METERS
+2. Export the object we need:
+    File - Export - Export Vector/Lidar Format..
+3. Select Export Format = Text File
+4. Apply the settings:
+    Coordinate Separator: (TAB)
+    Feature Separator: (NONE)
+    Coordinate Order/Format: X
+    Coordinate Precision: Use Default Precision Based on Units
+    Others don't need to select
+5. OK
+6. Select a text file with coordinates
+7. Click the button "Calculate area"
+8. Select the name and path of the file (.xlsx)
+9. Click "Save file"
+    ''')
+
+    def path_label(self):
+        self.ui.label_4.setText(file_name)
+
+    def label_status_calm(self):
+        self.ui.label_4.setText('Status')
+
+    def finish_label(self):
+        self.ui.label_4.setText('Finish')
+
+
+if __name__ == '__main__':
+    app = QtWidgets.QApplication(sys.argv)
+    myapp = area_calculate()
+    myapp.show()
+    sys.exit(app.exec_())
