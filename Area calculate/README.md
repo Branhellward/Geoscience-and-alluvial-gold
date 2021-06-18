@@ -30,14 +30,22 @@ At first this script was originally for [Global Mapper](https://www.bluemarblege
 
 ![pref_ex.png](img/pref_ex.png)
 
-3. Take our export file and put it with main.py together, rename .txt file as 'square' than run the script (example).
+3. This is Global Mapper export (example).
 
 ![vector_ex.png](img/vector_ex.png)
 
-4. And here we have a result (example).
+4. Run the program we have an interface
+
+![gui_ex](img/gui_ex.png)
+
+* At first select file
+* Than click "Calculate area" button
+* Choose path and name of new .xlsx file
+
+5. And here we have a result (example).
 
 ![result_ex.png](img/result_ex.png)
-         
+
 It can be useful when you need copy this table to Word (doc or docx) file or AutoCAD dwg file
 
 ------
