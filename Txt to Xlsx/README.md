@@ -20,19 +20,19 @@ At first this script was originally for [Global Mapper](https://www.bluemarblege
 
 1. Take the area for export:
 
-![area_ex](img\area_ex.png)
+![area_ex](img/area_ex.png)
 
 2. Export vector/lidar as .txt use this options (example):
 
-![export_ex](img\export_ex.png)
+![export_ex](img/export_ex.png)
 
 3. This is Global Mapper export (example).
 
-![export_ex_2](img\export_ex_2.png)
+![export_ex_2](img/export_ex_2.png)
 
 4. Run the program we have an interface.
 
-![gui_ex](img\txt_to_xlsx_gui.png)
+![gui_ex](img/txt_to_xlsx_gui.png)
 
 * At first select file
 * Select "Number of decimal"
@@ -41,7 +41,7 @@ At first this script was originally for [Global Mapper](https://www.bluemarblege
 
 5. And here we have a result (example).
 
-![finish_ex](img\finish_ex.png)
+![finish_ex](img/finish_ex.png)
 
 
 It can be useful when you need copy this table to Word (doc or docx) file or AutoCAD dwg file
