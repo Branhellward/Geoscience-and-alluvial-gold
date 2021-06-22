@@ -10,6 +10,10 @@ Using these modules
 
 [Regex](https://pypi.org/project/regex/) - link to pypi.
 
+Add some GUI using PyQt5 and QT Designer
+
+[PyQt5](https://pypi.org/project/PyQt5/) - link to pypi.
+
 Sources:
 
 * [Gauss's area formula](https://en.wikipedia.org/wiki/Shoelace_formula) - link to Wikipedia page
@@ -34,12 +38,12 @@ At first this script was originally for [Global Mapper](https://www.bluemarblege
 
 ![vector_ex.png](img/vector_ex.png)
 
-4. Run the program we have an interface
+4. Run the program we have an interface.
 
 ![gui_ex](img/gui_ex.png)
 
 * At first select file
-* Than click "Calculate area" button
+* Then click "Calculate area" button
 * Choose path and name of new .xlsx file
 
 5. And here we have a result (example).
