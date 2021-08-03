@@ -6,11 +6,11 @@ global file_name_3, export_reverse_file
 
 def export_ingine():
     global file_name_3
-    book = openpyxl.open(file_name_3, read_only=True)
+    book = openpyxl.open(file_name_3, read_only=True)   # Xlsx file
     sheet = book.active
-    reverse_export_file = open(export_reverse_file, 'w')
+    reverse_export_file = open(export_reverse_file, 'w')    # Open xlsx for read
 
-    for row in range(3,sheet.max_row+1):
+    for row in range(3,sheet.max_row+1):    # Read all rows and add char to txt
         coord_line=str(sheet[row][4].value)+'° '+str(
             sheet[row][5].value)+'\' '+str(
                 sheet[row][6].value)+'\" '+'E'+'\t'+str(
@@ -34,9 +34,9 @@ class reverse_export(QtWidgets.QMainWindow):
     def open_file_xlsx(self):
             global file_name_3
             self.label_status_calm()
-            file_name_3 = QFileDialog.getOpenFileName(self, "File selection", "Your file", "table (*.xlsx);;table (*.xls)")[0]
+            file_name_3 = QFileDialog.getOpenFileName(self, "File selection", "Your file", "table (*.xlsx);;table (*.xls)")[0]    # Выбор файла с таблицей
             if not file_name_3:
-                QtWidgets.QMessageBox.about(self, 'Warning', 'Need to select a table file!')
+                QtWidgets.QMessageBox.about(self, 'Warning', 'Need to select a table file!')    # Предупреждение, отсутствие выбранного файла
             else:
                 self.label_path_3()
                 self.ui.pushButton_10.setDisabled(False)
@@ -45,16 +45,16 @@ class reverse_export(QtWidgets.QMainWindow):
     def save_file_area(self):
         global export_reverse_file
         export_reverse_file = False
-        export_reverse_file = QtWidgets.QFileDialog.getSaveFileName(self, "Save file", "Your file", "*.txt")[0]
+        export_reverse_file = QtWidgets.QFileDialog.getSaveFileName(self, "Save file", "Your file", "*.txt")[0]    # Сохранение файла
         if not export_reverse_file:
-            QtWidgets.QMessageBox.about(self, 'Warning', 'Need to select the name and path of the file!')
+            QtWidgets.QMessageBox.about(self, 'Warning', 'Need to select the name and path of the file!')   # Предупреждение, отсутствие пути сохранения
         else:
             export_ingine()
             self.finish_label()
             self.ui.pushButton_10.setDisabled(True)
 
     def instruction_4(self):
-        QtWidgets.QMessageBox.about(self, 'Instruction', ''' 
+        QtWidgets.QMessageBox.about(self, 'Instruction', '''
     Reverse Export
  
 1. Select a .xlsx/.xls file with coordinates
