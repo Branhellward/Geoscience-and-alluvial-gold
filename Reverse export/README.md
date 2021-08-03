@@ -16,29 +16,31 @@ Use this script we can convert our .xlsx table to .txt file, then import it to [
 
 1. Take a .xlsx table with coordinate for convert:
 
-![]()
+![xlsx](img/xlsx_table.png)
 
 * At first select file
 
-  ![]()
+  ![gui](img/gui_ex.png)
 
 * Then click "Export" button
 
 * Choose path and name of new .txt file
+* result of "Reverse Export"
+![export_result](img/test_export.png)
 
 2. Use  [Global Mapper](https://www.bluemarblegeo.com/global-mapper/) open our .txt file
 
-![]()
+![open_gm](img/open_gm.png)
 
 3. Select the right projection.
 
-![]()
+![proj](img/proj.png)
 
 4. Here we have a result (example).
 
-![]()
+![final_result](img/result.png)
 
-It can be useful when you already have a .xlsx table and don't want to write all coordinates by yourself.
+It can be useful when you already have a .xlsx table and don't want to rewrite all coordinates by yourself.
 
 ------
 
