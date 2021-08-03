@@ -20,12 +20,13 @@ Use this script we can convert our .xlsx table to .txt file, then import it to [
 
 * At first select file
 
-  ![gui](img/gui_ex.png)
+![gui](img/gui_ex.png)
 
 * Then click "Export" button
 
 * Choose path and name of new .txt file
 * result of "Reverse Export"
+
 ![export_result](img/test_export.png)
 
 2. Use  [Global Mapper](https://www.bluemarblegeo.com/global-mapper/) open our .txt file
