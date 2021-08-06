@@ -3,9 +3,8 @@ import openpyxl
 
 book = openpyxl.open('tt.xlsx', read_only=True)
 sheet = book.active
-# reverse_export_file = open(export_reverse_file, 'w')
-i = open('new.txt','w')
 
+i = open('new.txt','w')
 
 for row in range (3,sheet.max_row+1):
     coord_line = str(
@@ -17,9 +16,6 @@ for row in range (3,sheet.max_row+1):
                             sheet[row][5].value)+' '+str(
                                 sheet[row][6].value)+';\n'
 
-
-
     i.write(coord_line)
 i.close()
 # print(coord_line)
-    # print(sheet.max_row-2)

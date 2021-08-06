@@ -8,24 +8,17 @@ regular_ka = r'\1.\2'
 fine_text = regex.sub(r'(\d{0})+[.,]+(\d{0})',regular_ka ,open_file)
 # print(fine_text)
 
-
 wr = open('phm_export_geo.txt','w')
-wr.write(fine_text)                                           # Write our file
+wr.write(fine_text)
 wr.close()
-
 
 
 data = pd.read_csv('phm_export_geo.txt', encoding='cp1251', header=None, sep=r"\s+", names=None, )
 data=data.replace({';': ''}, regex=True)
-# data.replace(';', '')
 print(data)
 
-workbook = xlsxwriter.Workbook('3.xlsx')  # Name of xlsx file/ Название файла
+workbook = xlsxwriter.Workbook('3.xlsx')
 worksheet = workbook.add_worksheet('Coordinates')
-
-
-# currency_format = workbook.add_format({'num_format': '$#,##0.00'})
-# worksheet.write('A1', 1234.56, currency_format)
 
 
 merge_format = workbook.add_format({
@@ -51,14 +44,14 @@ write_format1 = workbook.add_format({
         'fg_color': 'white'})
 
 worksheet.merge_range('A1:A2', '№№', merge_format)
-worksheet.merge_range('B1:D1', 'North Latitude', merge_format)  # 'Северная Широта'
-worksheet.merge_range('E1:G1', 'East Longitude', merge_format)  # 'Восточная Долгота'
-worksheet.write('B2', 'Degrees', write_format)  # 'Градусы'
-worksheet.write('C2', 'Minutes', write_format)  # 'Минуты'
-worksheet.write('D2', 'Seconds', write_format)  # 'Секунды'
-worksheet.write('E2', 'Degrees', write_format)  # 'Градусы'
-worksheet.write('F2', 'Minutes', write_format)  # 'Минуты'
-worksheet.write('G2', 'Seconds', write_format)  # 'Секунды'
+worksheet.merge_range('B1:D1', 'North Latitude', merge_format)
+worksheet.merge_range('E1:G1', 'East Longitude', merge_format)
+worksheet.write('B2', 'Degrees', write_format)
+worksheet.write('C2', 'Minutes', write_format)
+worksheet.write('D2', 'Seconds', write_format)
+worksheet.write('E2', 'Degrees', write_format)
+worksheet.write('F2', 'Minutes', write_format)
+worksheet.write('G2', 'Seconds', write_format)
 worksheet.write('A1', '№№', write_format1)
 
 a = 0
