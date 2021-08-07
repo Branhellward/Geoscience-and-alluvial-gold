@@ -1,13 +1,14 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtWidgets import QMainWindow
 
 
-class Ui_GCE(object):
-    def setupUi(self, GCE):
-        GCE.setObjectName("GCE")
-        GCE.resize(405, 230)
-        GCE.setMinimumSize(QtCore.QSize(405, 230))
-        GCE.setMaximumSize(QtCore.QSize(405, 230))
-        self.tabWidget = QtWidgets.QTabWidget(GCE)
+class Ui_gce(object):
+    def setupUi(self, gce):
+        gce.setObjectName("gce")
+        gce.resize(405, 230)
+        gce.setMinimumSize(QtCore.QSize(405, 230))
+        gce.setMaximumSize(QtCore.QSize(405, 230))
+        self.tabWidget = QtWidgets.QTabWidget(gce)
         self.tabWidget.setGeometry(QtCore.QRect(0, 0, 411, 311))
         self.tabWidget.setObjectName("tabWidget")
         self.input = QtWidgets.QWidget()
@@ -153,26 +154,26 @@ class Ui_GCE(object):
         self.horizontalLayout_7.addWidget(self.pushButton_10)
         self.tabWidget.addTab(self.output, "")
 
-        self.retranslateUi(GCE)
+        self.retranslateUi(gce)
         self.tabWidget.setCurrentIndex(0)
-        QtCore.QMetaObject.connectSlotsByName(GCE)
+        QtCore.QMetaObject.connectSlotsByName(gce)
 
-    def retranslateUi(self, GCE):
+    def retranslateUi(self, gce):
         _translate = QtCore.QCoreApplication.translate
-        GCE.setWindowTitle(_translate("GCE", "GeoCalc Extention"))
-        self.pushButton.setText(_translate("GCE", "Create txt file"))
-        self.pushButton_2.setText(_translate("GCE", "Create txt file"))
-        self.pushButton_3.setText(_translate("GCE", "Select File"))
-        self.label.setText(_translate("GCE", "Convert xlsx table to txt file for GeoCalc"))
-        self.label_2.setText(_translate("GCE", "Status"))
-        self.label_3.setText(_translate("GCE", "Arc Degrees"))
-        self.label_4.setText(_translate("GCE", "Meters XY"))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.input), _translate("GCE", "Input"))
-        self.label_5.setText(_translate("GCE", "Status"))
-        self.pushButton_4.setText(_translate("GCE", "Select File"))
-        self.label_8.setText(_translate("GCE", "Arc Degrees"))
-        self.label_9.setText(_translate("GCE", "Meters XY"))
-        self.label_10.setText(_translate("GCE", "Convert txt file to xlsx table"))
-        self.pushButton_9.setText(_translate("GCE", "Create xlsx table"))
-        self.pushButton_10.setText(_translate("GCE", "Create xlsx table"))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.output), _translate("GCE", "Output"))
+        gce.setWindowTitle(_translate("gce", "GeoCalc Extention"))
+        self.pushButton.setText(_translate("gce", "Create txt file"))
+        self.pushButton_2.setText(_translate("gce", "Create txt file"))
+        self.pushButton_3.setText(_translate("gce", "Select File"))
+        self.label.setText(_translate("gce", "Convert xlsx table to txt file for GeoCalc"))
+        self.label_2.setText(_translate("gce", "Status"))
+        self.label_3.setText(_translate("gce", "Arc Degrees"))
+        self.label_4.setText(_translate("gce", "Meters XY"))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.input), _translate("gce", "Input"))
+        self.label_5.setText(_translate("gce", "Status"))
+        self.pushButton_4.setText(_translate("gce", "Select File"))
+        self.label_8.setText(_translate("gce", "Arc Degrees"))
+        self.label_9.setText(_translate("gce", "Meters XY"))
+        self.label_10.setText(_translate("gce", "Convert txt file to xlsx table"))
+        self.pushButton_9.setText(_translate("gce", "Create xlsx table"))
+        self.pushButton_10.setText(_translate("gce", "Create xlsx table"))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.output), _translate("gce", "Output"))
