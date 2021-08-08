@@ -36,7 +36,7 @@ def geo_xlsx_to_txt():
     wr = open(output_txt,'w')
     wr.write(fine_text)
     wr.close()
-
+    
 def xy_xlsx_to_txt():
     global select_file, output_txt
     book = openpyxl.open(select_file, read_only=True)
@@ -102,7 +102,6 @@ def xy_txt_to_xlsx():
     worksheet.write('C1', 'Y', write_format_hat)
 
     a = 0
-    # data_shape = data.shape[0]
     data_shape_2 = data.shape[0] - 1
     bcolmn = 'B'
     b = 0
