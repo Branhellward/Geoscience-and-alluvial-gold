@@ -1,11 +1,13 @@
 import sys
 import openpyxl
+import xlsxwriter
 import regex
 import pandas as pd
 from window import *
 
 
 global select_file, output_txt
+global select_file_2, output_xlsx
 
 def geo_xlsx_to_txt():
     global select_file, output_txt  
@@ -59,6 +61,73 @@ def xy_xlsx_to_txt():
     wr.write(fine_text)
     wr.close()
 
+def xy_txt_to_xlsx():
+    global select_file_2, output_xlsx
+    open_file = open(select_file_2).read()
+    cleaner = r'\1.\2'
+    fine_text = regex.sub(r'(\d{0})+[.,]+(\d{0})',cleaner ,open_file)
+
+    wr = open(select_file_2,'w')
+    wr.write(fine_text)
+    wr.close()
+
+    data = pd.read_csv(select_file_2, encoding='cp1251', header=None, sep=r"\s+", names=None, )
+    data=data.replace({';': ''}, regex=True)
+
+    workbook = xlsxwriter.Workbook(output_xlsx)
+    worksheet = workbook.add_worksheet('Coordinates')
+
+    worksheet.set_column('B:C', 16.22)
+    worksheet.set_column('D:E', 24.33)
+
+    write_format_hat = workbook.add_format({
+            'font': 'Times New Roman',
+            'bold': 1,
+            'border': 1,
+            'align': 'center',
+            'valign': 'vcenter',
+            'fg_color': 'white'})
+
+    write_format = workbook.add_format({
+            'bold': 0,
+            'border': 1,
+            'num_format': "0.000",
+            'align': 'center',
+            'valign': 'vcenter',
+            'fg_color': 'white'})
+
+
+    worksheet.write('A1', '№№', write_format_hat)
+    worksheet.write('B1', 'X', write_format_hat)
+    worksheet.write('C1', 'Y', write_format_hat)
+
+    a = 0
+    data_shape = data.shape[0]
+    data_shape_2 = data.shape[0] - 1
+    bcolmn = 'B'
+    b = 0
+    ccolmn = 'C'
+    c = 0
+
+    while a < data_shape_2:
+        vertical = ('A' + str(a + 2))
+        bb = (bcolmn + str(b + 2))
+        cc = (ccolmn + str(c + 2))
+
+        iat_data_2 = float(data.iat[a, 2])
+        iat_data_1 = float(data.iat[a, 1])
+
+        worksheet.write(bb, iat_data_2, write_format)
+        worksheet.write(cc, iat_data_1, write_format) 
+
+        a += 1
+        b += 1 
+        c += 1
+
+        worksheet.write(vertical, a, write_format_hat)
+
+    workbook.close()
+
 
 class gce(QtWidgets.QMainWindow):
     def __init__(self, parent=None):
@@ -69,6 +138,8 @@ class gce(QtWidgets.QMainWindow):
         self.ui.pushButton_3.clicked.connect(self.file_selection)
         self.ui.pushButton.clicked.connect(self.save_file_geo)
         self.ui.pushButton_2.clicked.connect(self.save_file_xy)
+        self.ui.pushButton_4.clicked.connect(self.file_selection_2)
+        self.ui.pushButton_10.clicked.connect(self.save_file_xlsx_xy)
     
     def file_selection(self):
         global select_file
@@ -81,6 +152,30 @@ class gce(QtWidgets.QMainWindow):
             self.ui.pushButton.setDisabled(False)
             self.ui.pushButton_2.setDisabled(False)
         return select_file
+    
+    def file_selection_2(self):
+        global select_file_2
+        self.label_status_calm_2()
+        select_file_2 = QFileDialog.getOpenFileName(self, "File selection", "Your file", "text (*.txt)")[0]
+        if not select_file_2:
+            QtWidgets.QMessageBox.about(self, 'Warning', 'Need to select a .txt file!')
+        else:
+            self.path_label_2()
+            self.ui.pushButton_9.setDisabled(False)
+            self.ui.pushButton_10.setDisabled(False)
+        return select_file_2
+
+    def save_file_xlsx_xy(self):
+        global output_xlsx
+        output_xlsx = False
+        output_xlsx = QtWidgets.QFileDialog.getSaveFileName(self, "Save file", "Your file", "*.xlsx")[0]
+        if not output_xlsx:
+            QtWidgets.QMessageBox.about(self, 'Warning', 'Need to select the name and path of the file!')
+        else:
+            xy_txt_to_xlsx()
+            self.finish_label_2()
+            self.ui.pushButton_9.setDisabled(True)
+            self.ui.pushButton_10.setDisabled(True)
     
     def save_file_geo(self):
         global output_txt
@@ -109,11 +204,20 @@ class gce(QtWidgets.QMainWindow):
     def path_label(self):
         self.ui.label_2.setText(select_file)
     
+    def path_label_2(self):
+        self.ui.label_5.setText(select_file_2)
+
     def finish_label(self):
         self.ui.label_2.setText('Finish')
 
+    def finish_label_2(self):
+        self.ui.label_5.setText('Finish')
+
     def label_status_calm(self):
         self.ui.label_2.setText('Status')
+    
+    def label_status_calm_2(self):
+        self.ui.label_5.setText('Status')
 
 
 if __name__ == '__main__':
