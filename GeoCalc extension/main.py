@@ -27,12 +27,20 @@ def geo_xlsx_to_txt():
         output_file.write(coord_line)
     output_file.close()
 
+    open_file = open(output_txt).read()
+    regular_ka = r'\1.\2'
+    fine_text = regex.sub(r'(\d{0})+[.,]+(\d{0})',regular_ka ,open_file)
+
+    wr = open(output_txt,'w')
+    wr.write(fine_text)
+    wr.close()
+
 def xy_xlsx_to_txt():
     global select_file, output_txt
     book = openpyxl.open(select_file, read_only=True)
     sheet = book.active
 
-    i = open(output_txt,'w')
+    output_file = open(output_txt,'w')
 
     for row in range (2,sheet.max_row+1):
         coord_line = str(
@@ -40,8 +48,8 @@ def xy_xlsx_to_txt():
                 sheet[row][1].value)+'; '+str(
                     sheet[row][2].value)+';\n'
 
-        i.write(coord_line)
-    i.close()
+        output_file.write(coord_line)
+    output_file.close()
 
     open_file = open(output_txt).read()
     regular_ka = r'\1.\2'
