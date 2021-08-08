@@ -1,5 +1,5 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtWidgets import QMainWindow
+from PyQt5.QtWidgets import QMainWindow, QFileDialog
 
 
 class Ui_gce(object):
@@ -20,6 +20,7 @@ class Ui_gce(object):
         self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
         self.horizontalLayout.setObjectName("horizontalLayout")
         self.pushButton = QtWidgets.QPushButton(self.horizontalLayoutWidget)
+        self.pushButton.setDisabled(True)
         font = QtGui.QFont()
         font.setPointSize(10)
         self.pushButton.setFont(font)
@@ -30,6 +31,7 @@ class Ui_gce(object):
         font.setPointSize(10)
         self.pushButton_2.setFont(font)
         self.pushButton_2.setObjectName("pushButton_2")
+        self.pushButton_2.setDisabled(True)
         self.horizontalLayout.addWidget(self.pushButton_2)
         self.pushButton_3 = QtWidgets.QPushButton(self.input)
         self.pushButton_3.setGeometry(QtCore.QRect(140, 80, 125, 23))
