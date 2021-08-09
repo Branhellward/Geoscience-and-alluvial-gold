@@ -15,7 +15,7 @@ def xy_txt_to_xlsx():
     wr.close()
 
     data = pd.read_csv(select_file, encoding='cp1251', header=None, sep=r"\s+", names=None, )
-    data=data.replace({';': ''}, regex=True)
+
 
     workbook = xlsxwriter.Workbook(output_xlsx)
     worksheet = workbook.add_worksheet('Coordinates')
@@ -56,7 +56,7 @@ def xy_txt_to_xlsx():
         bb = (bcolmn + str(b + 2))
         cc = (ccolmn + str(c + 2))
 
-        iat_data_2 = float(data.iat[a, 2])
+        iat_data_2 = float(data.iat[a, 0])
         iat_data_1 = float(data.iat[a, 1])
 
         worksheet.write(bb, iat_data_2, write_format)
@@ -78,6 +78,39 @@ class txt_to_xlxs_xy(QtWidgets.QMainWindow):
         self.ui = Ui_Form()
         self.ui.setupUi(self)
 
+        self.ui.pushButton_5.clicked.connect(self.open_file_txt)
+        self.ui.pushButton_4.clicked.connect(self.save_file_xlsx_xy)
+        
+
+    def open_file_txt(self):
+        global select_file
+        select_file = QFileDialog.getOpenFileName(self, "File selection", "Your file", "text (*.txt)")[0]
+        if not select_file:
+            QtWidgets.QMessageBox.about(self, 'Warning', 'Need to select a .txt file!')
+        else:
+            self.path_label()
+            self.ui.pushButton_4.setDisabled(False)
+        return select_file
+
+    def save_file_xlsx_xy(self):
+        global output_xlsx
+        output_xlsx = False
+        output_xlsx = QtWidgets.QFileDialog.getSaveFileName(self, "Save file", "Your file", "*.xlsx")[0]
+        if not output_xlsx:
+            QtWidgets.QMessageBox.about(self, 'Warning', 'Need to select the name and path of the file!')
+        else:
+            xy_txt_to_xlsx()
+            self.finish_label()
+            self.ui.pushButton_4.setDisabled(True)
+
+    def path_label(self):
+        self.ui.label_4.setText(select_file)
+
+    def finish_label(self):
+        self.ui.label_4.setText('Finish')
+
+    def label_status_calm(self):
+        self.ui.label_4.setText('Status')
 
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
