@@ -78,6 +78,7 @@ class txt_to_xlxs_xy(QtWidgets.QMainWindow):
 
         self.ui.pushButton_5.clicked.connect(self.open_file_txt)
         self.ui.pushButton_4.clicked.connect(self.save_file_xlsx_xy)
+        self.ui.pushButton_3.clicked.connect(self.notification)
         
     def open_file_txt(self):
         global select_file
@@ -108,6 +109,36 @@ class txt_to_xlxs_xy(QtWidgets.QMainWindow):
 
     def label_status_calm(self):
         self.ui.label_4.setText('Status')
+
+    def notification(self):
+
+        QtWidgets.QMessageBox.about(self, 'Instruction', '''
+Txt Xlsx XY
+
+1. The necessary lines, areas and points - must be
+            Projection:
+            Gauss Krueger (XY)
+            Zone:
+            Which you need
+            Datum:
+            Which you need, for ex. (S-42 (PULKOVO 1942))
+            Planar Units:
+            Meters
+2. Export the object we need:
+    File - Export - Export Vector/Lidar Format..
+3. Select Export Format = Text File
+4. Apply the settings:
+    Coordinate Separator: (TAB)
+    Feature Separator: (NONE)
+    Coordinate Order/Format: X
+    Coordinate Precision: Use Default Precision Based on Units
+    Others don't need to select
+5. OK
+6. Select a text file with coordinates
+7. Click the button "Convert"
+8. Select the name and path of the file (.xlsx)
+9. Click "Save file"
+''')
 
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
