@@ -8,7 +8,7 @@ class Ui_Form(object):
         Form.setMinimumSize(QtCore.QSize(400, 140))
         Form.setMaximumSize(QtCore.QSize(400, 140))
         self.label_6 = QtWidgets.QLabel(Form)
-        self.label_6.setGeometry(QtCore.QRect(10, 90, 131, 31))
+        self.label_6.setGeometry(QtCore.QRect(10, 90, 150, 31))
         font = QtGui.QFont()
         font.setFamily("Times New Roman")
         font.setPointSize(14)
