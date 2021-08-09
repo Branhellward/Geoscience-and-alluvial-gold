@@ -4,6 +4,7 @@ import regex
 import pandas as pd
 from window import *
 
+
 def xy_txt_to_xlsx():
     global select_file, output_xlsx
     open_file = open(select_file).read()
@@ -15,7 +16,6 @@ def xy_txt_to_xlsx():
     wr.close()
 
     data = pd.read_csv(select_file, encoding='cp1251', header=None, sep=r"\s+", names=None, )
-
 
     workbook = xlsxwriter.Workbook(output_xlsx)
     worksheet = workbook.add_worksheet('Coordinates')
@@ -38,7 +38,6 @@ def xy_txt_to_xlsx():
             'align': 'center',
             'valign': 'vcenter',
             'fg_color': 'white'})
-
 
     worksheet.write('A1', '№№', write_format_hat)
     worksheet.write('B1', 'X', write_format_hat)
@@ -71,7 +70,6 @@ def xy_txt_to_xlsx():
     workbook.close()
 
 
-
 class txt_to_xlxs_xy(QtWidgets.QMainWindow):
     def __init__(self, parent=None):
         QtWidgets.QWidget.__init__(self, parent)
@@ -81,7 +79,6 @@ class txt_to_xlxs_xy(QtWidgets.QMainWindow):
         self.ui.pushButton_5.clicked.connect(self.open_file_txt)
         self.ui.pushButton_4.clicked.connect(self.save_file_xlsx_xy)
         
-
     def open_file_txt(self):
         global select_file
         select_file = QFileDialog.getOpenFileName(self, "File selection", "Your file", "text (*.txt)")[0]
