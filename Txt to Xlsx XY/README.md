@@ -24,11 +24,11 @@ At first this script was originally for [Global Mapper](https://www.bluemarblege
 
 2. Export vector/lidar as .txt use this options (example):
 
-![export_ex](img\ex_options.png)
+![export_ex](img/ex_options.png)
 
 3. This is Global Mapper export (example).
 
-![export_ex_2](img\export_ex.png)
+![export_ex_2](img/export_ex.png)
 
 4. Run the program we have an interface.
 
