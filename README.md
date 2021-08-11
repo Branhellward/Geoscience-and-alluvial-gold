@@ -12,6 +12,7 @@ Tis is a repository for those who work with geology, mining and also for those w
 3. [Txt to xlsx](https://github.com/Branhellward/Geoscience-and-coordinates/tree/main/Txt%20to%20Xlsx) - Program that helps to transfer data from Global Mapper export file or your own file to a xlsx table using the right number of decimal.
 4. [Txt to xlsx XY](https://github.com/Branhellward/Geoscience-and-coordinates/tree/main/Txt%20to%20Xlsx%20XY) - Program that helps to transfer data from Global Mapper export file or your own file to a xlsx table use Gauss Krueger XY coordinates.
 5. [Reverse export](https://github.com/Branhellward/Geoscience-and-coordinates/tree/main/Reverse%20export) - Program that helps to convert data from xlsx table to Global Mapper and import coordinates.
+6. [Reverse export XY](https://github.com/Branhellward/Geoscience-and-coordinates/tree/main/Reverse%20export%20XY) - Program that helps to convert data from xlsx table to Global Mapper and import coordinates use Gauss Krueger XY coordinates.
 ------
 
 I hope it can help you to save some time in future
