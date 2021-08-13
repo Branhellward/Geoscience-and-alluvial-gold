@@ -102,7 +102,7 @@ def xy_txt_to_xlsx():
     worksheet.write('C1', 'Y', write_format_hat)
 
     a = 0
-    data_shape_2 = data.shape[0] - 1
+    data_shape_2 = data.shape[0]
     bcolmn = 'B'
     b = 0
     ccolmn = 'C'
