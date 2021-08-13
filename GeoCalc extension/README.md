@@ -18,7 +18,7 @@ Add some GUI using PyQt5 and QT Designer
 
 ---
 
-Use this script we can convert our .xlsx table to .txt file and back again and use it with [Phgeocalc](https://racurs.ru/program-products/photomod-geocalculator/).
+Use this script we can convert our .xlsx table to .txt file and back again then use it with [Phgeocalc](https://racurs.ru/program-products/photomod-geocalculator/).
 
 1. Take a .xlsx table with coordinate for convert:
 
