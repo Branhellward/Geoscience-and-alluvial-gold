@@ -5,7 +5,7 @@ P.S. I have some friends who work like this, and It really made their job easier
 
 ------
 
-0. [All in one](https://github.com/Branhellward/Geoscience-and-coordinates/tree/main/All%20in%20one) - Program that contain all previous program in one.
+[All in one](https://github.com/Branhellward/Geoscience-and-coordinates/tree/main/All%20in%20one) - Program that contain all previous program in one.
 
 ------
 
