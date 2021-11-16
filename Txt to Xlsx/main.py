@@ -2,6 +2,7 @@ import sys
 import pandas as pd
 import xlsxwriter
 import regex
+import io
 from window import *
 
 global reg_ex, file_name_2, output_2, open_first_2
@@ -18,10 +19,8 @@ def make_xlsx():
         .replace('\'', '') \
         .replace('\"', '') \
 
-    f = open('encoding.txt', 'w')
-    f.write(fin_fi_2)
-    f.close()
-    data = pd.read_csv('encoding.txt', encoding='cp1251', header=None, sep=r"\s+", names=None, )
+    df = io.StringIO(fin_fi_2)
+    data = pd.read_csv(df, encoding='cp1251', header=None, sep=r"\s+", names=None, )
     workbook = xlsxwriter.Workbook(output_2)  # Name of xlsx file/ Название файла
     worksheet = workbook.add_worksheet('Coordinates')  # Name of xlsx worksheet/ Название листа
 
