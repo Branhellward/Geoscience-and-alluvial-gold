@@ -1,3 +1,5 @@
+import pandas as pd
+
 def for_dms():
     counter = 1
     replacements = {'°':'', ' N':';', ' E':';', '\'':'', '\"':''}
@@ -8,6 +10,11 @@ def for_dms():
                 line = line.replace(src, target)
             output_file.write( '{}{} {}'.format(counter,';', line))
             counter += 1 
+    
+    data = pd.read_csv('3.txt', encoding='cp1251', header=None, sep=r"\s+", names=None)
+    data = data[[0,4,5,6,1,2,3]]
+
+    data.to_csv('3.txt', header=None, index=None, sep=' ', mode='w')
 
 def for_xy():
     counter = 1
