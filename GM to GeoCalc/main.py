@@ -26,3 +26,7 @@ def for_xy():
                 line = line.replace(src, target)
             output_file.write( '{}{} {}'.format(counter,';', line))
             counter += 1
+            
+    data = pd.read_csv('5.txt', encoding='cp1251', header=None, sep=r"\s+", names=None)
+    data = data[[0,2,1]]
+    data.to_csv('3.txt', header=None, index=None, sep=' ', mode='w')
