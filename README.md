@@ -18,6 +18,7 @@ Tis is a repository for those who work with geology, mining and also for those w
 5. [Reverse export](https://github.com/Branhellward/Geoscience-and-coordinates/tree/main/Reverse%20export) - Program that helps to convert data from xlsx table to Global Mapper and import coordinates.
 6. [Reverse export XY](https://github.com/Branhellward/Geoscience-and-coordinates/tree/main/Reverse%20export%20XY) - Program that helps to convert data from xlsx table to Global Mapper and import coordinates use Gauss Krueger XY coordinates.
 7. [GeoCalc extension](https://github.com/Branhellward/Geoscience-and-coordinates/tree/main/GeoCalc%20extension) - Program that helps to convert our .xlsx table to .txt file and back again then use it with Phgeocalc.
+8. [GM to GeoCalc](https://github.com/Branhellward/Geoscience-and-coordinates/tree/main/GM%20to%20GeoCalc) - Program that work with Global Mapper export file and convert it for work with GeoCalc use DME and XY coordinates.
 
 ------
 
