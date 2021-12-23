@@ -47,8 +47,8 @@ def xy_xlsx_to_txt():
     for row in range (2,sheet.max_row+1):
         coord_line = str(
             sheet[row][0].value)+'; '+str(
-                sheet[row][1].value)+'; '+str(
-                    sheet[row][2].value)+';\n'
+                sheet[row][2].value)+'; '+str(
+                    sheet[row][1].value)+';\n'
 
         output_file.write(coord_line)
     output_file.close()
