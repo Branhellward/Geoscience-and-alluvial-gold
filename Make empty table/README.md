@@ -18,11 +18,17 @@ After run we have an interface:
 
 Input 15 (example)
 
-Click button "Create empty table" and select the name and path of the file
+Click button "DMS" or "XY" and select the name and path of the file
 
-Then you have a "your_name".xlsx file with a full table you want:
+Then you have a "your_name".xlsx file with a full table you want "DMS":
 
 ![Your output table](img/Table_ex.png)
+
+or
+
+You have a "your_name".xlsx file with a full table like that "XY":
+
+![Your output table](img/Table_ex_xy.png)
 
 It can be useful when you need copy this table to Word (doc or docx) file or AutoCAD dwg file
 
