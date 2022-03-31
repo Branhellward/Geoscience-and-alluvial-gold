@@ -1,6 +1,3 @@
-# If you need - you can replace English to Russian use comments in source
-# При необходимости вы можете заменить английский язык на русский в соответствии с комментариями
-
 import sys
 import xlsxwriter
 from window import *
@@ -62,6 +59,58 @@ def empty_xlsx():
         z += 1
 
     workbook.close()
+    
+    
+def empty_xlsx_xy():
+
+    global number_of_cells
+
+    def number_of_rows():
+        return let + str(dig)
+
+    height = 1
+    dig = 2  # Digit
+    let = 'A'  # Letter
+    z = 1  # Counter
+
+    workbook = xlsxwriter.Workbook(output_file)  # Name of xlsx file/ Название файла
+    worksheet = workbook.add_worksheet('Сoordinates')  # Name of xlsx worksheet/ Название листа
+
+    worksheet.set_column('B:C', 16.22)
+    worksheet.set_column('D:E', 24.33)
+
+    write_format_hat = workbook.add_format({
+            'font': 'Times New Roman',
+            'bold': 1,
+            'border': 1,
+            'num_format': "0",
+            'align': 'center',
+            'valign': 'vcenter',
+            'fg_color': 'white'})
+
+    write_format = workbook.add_format({
+            'bold': 0,
+            'border': 1,
+            'num_format': "0.000",
+            'align': 'center',
+            'valign': 'vcenter',
+            'fg_color': 'white'})
+
+    worksheet.write('A1', '№№', write_format_hat)
+    worksheet.write('B1', 'X', write_format_hat)  
+    worksheet.write('C1', 'Y', write_format_hat)  
+
+
+    while height <= number_of_cells:
+        table = number_of_rows()
+        worksheet.write(table, int(z), write_format_hat)
+        worksheet.write('B' + str(dig), None, write_format)
+        worksheet.write('C' + str(dig), None, write_format)
+        height += 1
+        dig += 1
+        z += 1
+
+    workbook.close()
 
 
 class empty_table(QtWidgets.QMainWindow):
@@ -72,6 +121,7 @@ class empty_table(QtWidgets.QMainWindow):
 
         self.ui.pushButton_2.clicked.connect(self.instruction)
         self.ui.pushButton.clicked.connect(self.cells_creator)
+        self.ui.pushButton_3.clicked.connect(self.cells_creator_xy)
 
     def label_status_calm(self):
         self.ui.label_3.setText('Status')
@@ -88,6 +138,17 @@ class empty_table(QtWidgets.QMainWindow):
             QtWidgets.QMessageBox.about(self, 'Warning', 'Need to select the name and path of the file!')
         else:
             empty_xlsx()
+            self.label_status_finish()
+            
+    def cells_creator_xy(self):
+        global number_of_cells, output_file
+        number_of_cells = self.ui.spinBox.value()
+        output_file = QtWidgets.QFileDialog.getSaveFileName(self, "Save File", "Your file", "*.xlsx")[0]
+        if not output_file:
+            self.label_status_calm()
+            QtWidgets.QMessageBox.about(self, 'Warning', 'Need to select the name and path of the file!')
+        else:
+            empty_xlsx_xy()
             self.label_status_finish()
 
     def instruction(self):
